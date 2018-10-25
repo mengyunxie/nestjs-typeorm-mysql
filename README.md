@@ -2,7 +2,7 @@
 
 ## Description
 
-description
+This is an nestJS project which use typeorm and mysql.
 
 ## Installation
 
@@ -34,6 +34,26 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+## some CLI
+
+### create controller
+
+```bash
+nest g controller cats
+```
+
+### create controller
+
+```bash
+nest g service cats/cats
+```
+
+### create controller
+
+```bash
+nest g module cats 
 ```
 
 # nestJs
