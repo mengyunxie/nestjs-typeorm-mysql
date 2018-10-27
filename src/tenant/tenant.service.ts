@@ -5,6 +5,7 @@ import { Tenant } from './tenant.entity';
 
 @Injectable()
 export class TenantService {
+  tenantIdNum = 0;
   constructor(
     @InjectRepository(Tenant)
     private readonly tenantRepository: Repository<Tenant>,
@@ -22,16 +23,14 @@ export class TenantService {
   async create(body): Promise<string> {
     const tenant = new Tenant();
     tenant.name = body.name;
-    tenant.tenantId = body.tenantId;
     tenant.contactName = body.contactName;
     tenant.contactEmail = body.contactEmail;
     tenant.address = body.address;
     tenant.domain = body.domain;
     tenant.description = body.description;
-
     return this.tenantRepository.save(tenant)
       .then(res => {
-        return 'create tenant ...done';
+        return res;
       })
       .catch(err => {
         return err;
@@ -61,7 +60,7 @@ export class TenantService {
 
     return this.tenantRepository.update(tenantId, tenant)
       .then(res => {
-        return 'update tenant ...done';
+        return res;
       })
       .catch(err => {
         return err;
